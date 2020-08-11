@@ -1,0 +1,72 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Runs a single command using the runners shell
+    - name: Run a one-line script
+      run: echo Hello, world!
+
+    # Runs a set of commands using the runners shell
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+   
+ -  
+   
+ - name: Flake8 Jupyter Notebook
+  uses: mhitza/flake8-jupyter-notebook@v1
+  with:
+    # Dump debug information
+    debug: # optional 
+    
+- name: Treebeard Jupyter Notebook CI
+  uses: treebeardtech/treebeard@v0.1.1
+  with:
+    # treebeard api key
+    api-key: # optional
+    # notebooks to run
+    notebooks: # optional
+    # 
+    docker-username: # optional
+    # 
+    docker-password: # optional
+    # the name of the image built by treebeard
+    docker-image-name: # optional
+    # the prefix of your docker image name, use instead of docker-image-name to generate a default image name
+    docker-registry-prefix: # optional
+    # run treebeard inside repo2docker
+    use-docker: # optional, default is true
+    # Enable debug logging
+    debug: # optional, default is false
+    # Path of the repo to run
+    path: # optional, default is .    
+- name: fastpages: An easy to use blogging platform with support for Jupyter Notebooks.
+  uses: fastai/fastpages@v2.1.5
+  with:
+    # Either 'true' or 'false'.  Whether or not to commit converted markdown files from notebooks and word documents into the _posts directory in your repo.  This is useful for debugging.
+    BOOL_SAVE_MARKDOWN: # optional
+    # a ssh deploy key is required if BOOL_SAVE_MARKDOWN = 'true'
+    SSH_DEPLOY_KEY: # optional    
+        
+        
